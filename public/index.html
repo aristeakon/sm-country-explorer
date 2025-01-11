@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .results-section {
+            margin-top: 2rem;
+        }
+
+        .button-group {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">Country Explorer</h1>
+
+        <!-- Filters Section -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="filter-group">
+                    <label for="limit" class="form-label">Number of Results:</label>
+                    <input type="number" id="limit" class="form-control" min="1" value="10">
+                </div>
+                <div class="filter-group">
+                    <label class="form-label">Visible Fields:</label>
+                    <div id="fieldOptions" class="d-flex flex-wrap gap-2"></div>
+                    <button id="updateFields" class="btn btn-outline-primary w-100 mt-2">Update Table Fields</button>
+                </div>
+                <div class="filter-group">
+                    <button id="exportJson" class="btn btn-outline-success w-100">Export Displayed Data</button>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="button-group">
+                    <button id="fetchAll" class="btn btn-primary w-100 mb-2">Fetch All Countries</button>
+                    <label for="costType" class="form-label">Cost of Living:</label>
+                    <select id="costType" class="form-select mb-2">
+                        <option value="cheapest">Cheapest</option>
+                        <option value="most_expensive">Most Expensive</option>
+                    </select>
+                    <button id="fetchCostOfLiving" class="btn btn-info w-100 mb-2">Fetch Cost of Living</button>
+
+                    <label for="restaurantType" class="form-label">Restaurant Price:</label>
+                    <select id="restaurantType" class="form-select mb-2">
+                        <option value="cheapest">Cheapest</option>
+                        <option value="most_expensive">Most Expensive</option>
+                    </select>
+                    <button id="fetchRestaurantPrice" class="btn btn-secondary w-100 mb-2">Fetch Restaurant Prices</button>
+
+                    <label for="lifeType" class="form-label">Quality of Life:</label>
+                    <select id="lifeType" class="form-select mb-2">
+                        <option value="best">Best</option>
+                        <option value="worst">Worst</option>
+                    </select>
+                    <button id="fetchQualityOfLife" class="btn btn-success w-100 mb-2">Fetch Quality of Life</button>
+
+                    <label for="adventureType" class="form-label">Adventure:</label>
+                    <select id="adventureType" class="form-select mb-2">
+                        <option value="best">Best</option>
+                        <option value="worst">Worst</option>
+                    </select>
+                    <button id="fetchAdventure" class="btn btn-dark w-100 mb-2">Fetch Adventure</button>
+
+                    <label for="heritageType" class="form-label">Cultural Heritage:</label>
+                    <select id="heritageType" class="form-select mb-2">
+                        <option value="best">Best</option>
+                        <option value="worst">Worst</option>
+                    </select>
+                    <button id="fetchCulturalHeritage" class="btn btn-outline-danger w-100 mb-2">Fetch Cultural Heritage</button>
+
+                    <button id="fetchSafetyIndex" class="btn btn-warning w-100">Fetch Safety Index</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="row results-section">
+            <div class="col-md-12">
+                <h2 class="text-center">Results</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr id="tableHeader"></tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
